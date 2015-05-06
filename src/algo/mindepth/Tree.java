@@ -27,7 +27,21 @@ public class Tree {
     }
 
     private int getMinDepth(Node root) {
+        if (root.mLeft == null && root.mRight == null) {
+            return 0;
+        }
+        
+        int minLeft = Integer.MAX_VALUE;
+        if (root.mLeft != null) {
+            minLeft = getMinDepth(root.mLeft);
+        }
 
+        int minRight = Integer.MAX_VALUE;
+        if (root.mRight != null) {
+            minRight = getMinDepth(root.mRight);
+        }
+        
+        return Math.min(minLeft, minRight) + 1;
     }
 
     public int getMinDepthBfs() {
