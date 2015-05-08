@@ -18,11 +18,11 @@ public class MinDepthTest {
         return Arrays.asList(new Object[][] {
                 { fillSingleLeaf(), 0 },
                 { fillTwoLeavesBalanced(), 1 },
-                { fillLeftSubtree(), 0 },
+                { fillLeftSubtree(), 2 },
                 { fillBalancedTwoLevels(), 2 },
-                { fillRightSubtree(), 0 },
-                { fillLeftPath(), 0 },
-                { fillRightPath(), 0 }
+                { fillRightSubtree(), 2 },
+                { fillLeftPath(), 3 },
+                { fillRightPath(), 3 }
         });
     }
 
@@ -36,9 +36,13 @@ public class MinDepthTest {
     }
 
     @Test
-    public void test() {
-        assertEquals(fExpected, fInput.getMinDepthBfs());
+    public void testRecursive() {
         assertEquals(fExpected, fInput.getMinDepth());
+    }
+    
+    @Test
+    public void testBfs() {
+        assertEquals(fExpected, fInput.getMinDepthBfs());   
     }
 
     /*
